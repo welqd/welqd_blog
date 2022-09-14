@@ -1,7 +1,6 @@
 ---
 title: "EVE-NG в Arch Linux с i3wm"
 date: 2022-09-13T20:16:17+03:00
-draft: true
 author: Vadim Aleshin
 tags: ['networking', 'linux', 'eve-ng', 'i3']
 ---
