@@ -10,7 +10,7 @@ tags: ['networking', 'linux', 'eve-ng', 'i3']
 Предполагается, что уже есть установленная VMware workstation, для Arch Linux можно установить из [AUR](https://aur.archlinux.org/packages/vmware-workstation).  
 Для установки EVE Community Edition Version:  
 1. Скачиваем архив с образом с официального [сайта](https://www.eve-ng.net/index.php/download/)
-2. Распаковываем архим и добавляем в VMware workstation (File -> Open -> EVE-COM-5.ovf)
+2. Распаковываем архив и добавляем в VMware workstation (File -> Open -> EVE-COM-5.ovf)
 3. Запускаем VM и входим в ОС под пользователем root, пароль eve
 4. Задаем первичные параметры в появившемся диалоге настроек (root пароль, ip адрес и т.д.)
 
@@ -19,7 +19,7 @@ tags: ['networking', 'linux', 'eve-ng', 'i3']
 ## Добавление образов
 
 В EVE-NG можно использовать разные типы образов: dynamips, iol, qemu.  
-Для примера будем использовать образы Cisco (iol), а после добавим custom linux образ.  
+Для примера будем использовать образы Cisco (iol), а после добавим [custom linux образ]({{< ref "/post/eve-ng-linux-iso.md" >}}).  
 IOL-образы необходимо добавлять по пути: **/opt/unetlab/addons/iol/bin/**
 
 1. Перейдем в директорию на локальной машине, где располагаются образы[^1].
