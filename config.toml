@@ -1,5 +1,5 @@
 baseurl = "https://welqd.github.io"
-DefaultContentLanguage = "ru"
+DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Vadim Aleshin's Blog"
 theme = "beautifulhugo"
@@ -10,7 +10,7 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
-#disqusShortname = "XXX"
+disqusShortname = "welqd"
 #googleAnalytics = "XXX"
 
 [Params]
