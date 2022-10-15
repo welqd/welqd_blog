@@ -15,7 +15,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [Params]
   homeTitle = ".!!!!" # Set a different text for the header on the home page
-  subtitle = "Публикации на тему компьютерных сетей и linux"
+  subtitle = "Публикации на тему компьютерных сетей и Linux"
   mainSections = ["post","posts"]
   logo = "img/logo.png" # Expecting square dimensions
   favicon = "img/favicon.ico"
