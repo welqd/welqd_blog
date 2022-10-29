@@ -1,7 +1,6 @@
 baseurl = "https://welqd.github.io"
 DefaultContentLanguage = "en"
-#DefaultContentLanguage = "ja"
-title = "Vadim Aleshin's Blog"
+title = "welqd's blog"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -14,11 +13,11 @@ pygmentsCodefencesGuessSyntax = true
 #googleAnalytics = "XXX"
 
 [Params]
-  homeTitle = ".!!!!" # Set a different text for the header on the home page
-  subtitle = "Публикации на тему компьютерных сетей и Linux"
+  homeTitle = ".!!!!" 
+  subtitle = "Пытаюсь в компьютерные сети и Linux"
   mainSections = ["post","posts"]
-  logo = "img/logo.png" # Expecting square dimensions
-  favicon = "img/favicon.ico"
+  logo = "img/logo-1.png"
+  favicon = "img/favicon-1.ico"
   dateFormat = "January 2, 2006"
   commit = false
   rss = false
