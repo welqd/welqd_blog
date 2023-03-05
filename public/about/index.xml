@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on welqd&#39;s blog</title>
+    <link>https://welqd.github.io/about/</link>
+    <description>Recent content in Abouts on welqd&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://welqd.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Обо мне</title>
+      <link>https://welqd.github.io/about/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://welqd.github.io/about/about/</guid>
+      <description>Всем привет. Меня зовут Вадим, интересуюсь компьютерными сетями, linux и в целом сферой информационных технологий.
+Этот блог, в первую очередь, является моими заметками в процессе изучения чего-либо, но возможно кто-нибудь найдет полезную для себя информацию.
+Публикации абсолютно не претендуют на best practice, т.к. написаны в процессе изучения и/или персонального использования.</description>
+    </item>
+    
+  </channel>
+</rss>

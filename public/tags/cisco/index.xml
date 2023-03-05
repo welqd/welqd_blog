@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>cisco - Tag - welqd&#39;s blog</title>
+    <link>https://welqd.github.io/tags/cisco/</link>
+    <description>cisco - Tag - welqd&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 17 Sep 2022 17:41:36 &#43;0300</lastBuildDate><atom:link href="https://welqd.github.io/tags/cisco/" rel="self" type="application/rss+xml" /><item>
+  <title>IPSec между Cisco и Linux, при помощи systemd-networkd и VTI</title>
+  <link>https://welqd.github.io/posts/linux-cisco-vti-ipsec/</link>
+  <pubDate>Sat, 17 Sep 2022 17:41:36 &#43;0300</pubDate>
+  <author>Vadim Aleshin</author>
+  <guid>https://welqd.github.io/posts/linux-cisco-vti-ipsec/</guid>
+  <description><![CDATA[В предыдущей статье был создан образ роутера на Linux для EVE-NG на основе Debian 11. Теперь, используя данный образ, настроим популярный сценарий - IPSec между роутером Cisco и роутером с Linux.
+Существуют несколько методов организации IPSec туннеля между двумя точками:
+Policy-based - трафик, который должен отправляться в туннель, определяется на основе политик в процессе конфигурации IPSec&rsquo;а. Route-based - трафик, который должен отправляться в туннель, определяется с помощью маршрута по адресу назначения и конфигурируется с помощью протоколов маршрутизации (либо статических маршрутов), обычно поверх VTI или GRE туннельных интерфейсов.]]></description>
+</item>
+</channel>
+</rss>
