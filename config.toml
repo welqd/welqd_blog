@@ -64,26 +64,15 @@ enableEmoji = true
   # Footer config
   [params.footer]
     enable = true
-    # FixIt 0.2.17 | CHANGED Custom content (HTML format is supported)
-    # For advanced use, see parameter `params.customFilePath.footer`
     custom = ""
-    # FixIt 0.2.0 | NEW whether to show Hugo and theme info
     hugo = false
-    # FixIt 0.2.0 | NEW whether to show copyright info
     copyright = true
-    # FixIt 0.2.0 | NEW whether to show the author
     author = true
-    # Site creation year
     since = "2022"
-    # FixIt 0.2.14 | NEW whether to show total word count of site content
     wordCount = true
-    # FixIt 0.2.12 | NEW Public network security only in China (HTML format is supported)
     gov = ""
-    # ICP info only in China (HTML format is supported)
     icp = ""
-    # license info (HTML format is supported)
     license = ""
-    # FixIt 0.2.17 | CHANGED Site creation time
     [params.footer.siteTime]
       enable = true
       animate = true
@@ -100,26 +89,18 @@ enableEmoji = true
 
   # FixIt 0.2.0 | NEW Section (all posts) page config
   [params.section]
-    # special amount of posts in each section page
     paginate = 20
-    # date format (month and day)
     dateFormat = "01-02"
-    # amount of RSS pages
     rss = 10
-    # FixIt 0.2.13 | NEW recently updated posts settings
     [params.section.recentlyUpdated]
       enable = false
       rss = false
       days = 30
       maxCount = 10
 
-  # FixIt 0.2.0 | NEW List (category or tag) page config
   [params.list]
-    # special amount of posts in each list page
     paginate = 20
-    # date format (month and day)
     dateFormat = "01-02"
-    # amount of RSS pages
     rss = 10
 
   # FixIt 0.2.17 | NEW TagCloud config for tags page
@@ -135,26 +116,17 @@ enableEmoji = true
     rss = 10
     [params.home.profile]
       enable = true
-      # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
-      # URL of avatar shown in home page
       avatarURL = ""
-      # FixIt 0.2.17 | NEW identifier of avatar menu link
       avatarMenu = ""
-      # FixIt 0.2.7 | CHANGED title shown in home page (HTML format is supported)
       title = ""
-      # subtitle shown in home page
       subtitle = ".!!!!"
-      # whether to use typeit animation for subtitle
       typeit = true
-      # whether to show social links
       social = true
-      # FixIt 0.2.0 | NEW disclaimer (HTML format is supported)
       disclaimer = ""
     # Home page posts
     [params.home.posts]
       enable = true
-      # special amount of posts in each home posts page
       paginate = 6
 
   # FixIt 0.2.16 | CHANGED Social config about the author
@@ -251,39 +223,21 @@ enableEmoji = true
   [params.page]
     # FixIt 0.2.18 | NEW whether to enable the author's avatar of the post
     authorAvatar = true
-    # FixIt 0.2.0 | NEW whether to hide a page from home page
     hiddenFromHomePage = false
-    # FixIt 0.2.0 | NEW whether to hide a page from search results
     hiddenFromSearch = false
-    # FixIt 0.2.0 | NEW whether to enable twemoji
     twemoji = false
-    # whether to enable lightgallery
-    # FixIt 0.2.18 | CHANGED if set to "force", images in the content will be forced to shown as the gallery.
     lightgallery = false
-    # FixIt 0.2.0 | NEW whether to enable the ruby extended syntax
     ruby = true
-    # FixIt 0.2.0 | NEW whether to enable the fraction extended syntax
     fraction = true
-    # FixIt 0.2.0 | NEW whether to enable the fontawesome extended syntax
     fontawesome = true
-    # license info (HTML format is supported)
     license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
-    # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
-    # FixIt 0.2.4 | NEW whether to show the full text content in RSS
     rssFullText = false
-    # FixIt 0.2.13 | NEW Page style ["narrow", "normal", "wide", ...]
     pageStyle = "normal"
-    # FixIt 0.2.17 | CHANGED Auto Bookmark Support
-    # If true, save the reading progress when closing the page.
     autoBookmark = false
-    # FixIt 0.2.17 | NEW whether to enable wordCount
     wordCount = true
-    # FixIt 0.2.17 | NEW whether to enable readingTime
     readingTime = true
-    # FixIt 0.2.17 | NEW end of post flag
     endFlag = ""
-    # FixIt 0.2.18 | NEW whether to enable instant.page
     instantPage = false
 
     # FixIt 0.2.15 | NEW Repost config
@@ -292,43 +246,28 @@ enableEmoji = true
       url = ""
     # FixIt 0.2.0 | NEW Table of the contents config
     [params.page.toc]
-      # whether to enable the table of the contents
       enable = true
-      # FixIt 0.2.9 | NEW whether to keep the static table of the contents in front of the post
       keepStatic = false
-      # whether to make the table of the contents in the sidebar automatically collapsed
       auto = true
-      # FixIt 0.2.13 | NEW position of TOC ["left", "right"]
       position = "right"
-    # FixIt 0.2.13 | NEW Display a message at the beginning of an article to warn the reader that its content might be expired
     [params.page.expirationReminder]
       enable = false
-      # Display the reminder if the last modified time is more than 90 days ago
       reminder = 90
-      # Display warning if the last modified time is more than 180 days ago
       warning = 180
-      # If the article expires, close the comment or not
       closeComment = false
     # FixIt 0.2.16 | CHANGED KaTeX mathematical formulas (https://katex.org)
     [params.page.math]
       enable = true
-      # default inline delimiter is $ ... $ and \( ... \)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
-      # default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
       blockLeftDelimiter = ""
       blockRightDelimiter = ""
-      # KaTeX extension copy_tex
       copyTex = true
-      # KaTeX extension mhchem
       mhchem = true
     # FixIt 0.2.0 | NEW Code config
     [params.page.code]
-      # whether to show the copy button of the code block
       copy = true
-      # FixIt 0.2.13 | NEW whether to show the edit button of the code block
       edit = true
-      # the maximum number of lines of displayed code by default
       maxShownLines = 10
     # FixIt 0.2.14 | NEW Post edit
     [params.page.edit]
@@ -341,23 +280,16 @@ enableEmoji = true
     [params.page.mapbox]
       # access token of Mapbox GL JS
       accessToken = ""
-      # style for the light theme
       lightStyle = "mapbox://styles/mapbox/light-v9"
-      # style for the dark theme
       darkStyle = "mapbox://styles/mapbox/dark-v9"
-      # whether to add NavigationControl
       navigation = true
-      # whether to add GeolocateControl
       geolocate = true
-      # whether to add ScaleControl
       scale = true
-      # whether to add FullscreenControl
       fullscreen = true
     # FixIt 0.2.17 | NEW Donate (Sponsor) settings
     [params.page.reward]
       enable = false
       animation = false
-      # position relative to post footer, optional values: ["before", "after"]
       position = "after"
       # comment = "Buy me a coffee"
       [params.page.reward.ways]
@@ -399,128 +331,16 @@ enableEmoji = true
     [params.page.comment]
       enable = true
       # FixIt 0.2.13 | NEW Artalk comment config (https://artalk.js.org/)
-      [params.page.comment.artalk]
-        enable = false
-        server = "https://yourdomain/api/"
-        site = "默认站点"
-        placeholder = ""
-        noComment = ""
-        sendBtn = ""
-        editorTravel = true
-        flatMode = "auto"
-        maxNesting = 3
-        # FixIt 0.2.17 | CHANGED enable lightgallery support
-        lightgallery = false
-        locale = "" # FixIt 0.2.15 | NEW
-      # FixIt 0.1.1 | NEW Disqus comment config (https://disqus.com)
-      [params.page.comment.disqus]
-        enable = false
-        # Disqus shortname to use Disqus in posts
-        shortname = ""
-      # FixIt 0.1.1 | NEW Gitalk comment config (https://github.com/gitalk/gitalk)
-      [params.page.comment.gitalk]
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
-      # Valine comment config (https://github.com/xCss/Valine)
-      [params.page.comment.valine]
-        enable = false
-        appId = ""
-        appKey = ""
-        placeholder = ""
-        avatar = "mp"
-        meta = ""
-        requiredFields = ""
-        pageSize = 10
-        lang = ""
-        visitor = true
-        recordIP = true
-        highlight = true
-        enableQQ = false
-        serverURLs = ""
-        # FixIt 0.2.6 | NEW emoji data file name, default is "google.yml"
-        # ["apple.yml", "google.yml", "facebook.yml", "twitter.yml"]
-        # located in "themes/FixIt/assets/lib/valine/emoji/" directory
-        # you can store your own data files in the same path under your project:
-        # "assets/lib/valine/emoji/"
-        emoji = ""
-        commentCount = true # FixIt 0.2.13 | NEW
-      # FixIt 0.2.16 | CHANGED Waline comment config (https://waline.js.org)
-      [params.page.comment.waline]
-        enable = false
-        serverURL = ""
-        pageview = false # FixIt 0.2.15 | NEW
-        emoji = ["//unpkg.com/@waline/emojis@1.1.0/weibo"]
-        meta = ["nick", "mail", "link"]
-        requiredMeta = []
-        login = "enable"
-        wordLimit = 0
-        pageSize = 10
-        imageUploader = false # FixIt 0.2.15 | NEW
-        highlighter = false # FixIt 0.2.15 | NEW
-        comment = false # FixIt 0.2.15 | NEW
-        texRenderer = false # FixIt 0.2.16 | NEW
-        search = false # FixIt 0.2.16 | NEW
-        recaptchaV3Key = "" # FixIt 0.2.16 | NEW
-        reaction = false # FixIt 0.2.18 | NEW
-      # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
-      [params.page.comment.facebook]
-        enable = false
-        width = "100%"
-        numPosts = 10
-        appId = ""
-        languageCode = ""
-      # FixIt 0.2.0 | NEW Telegram comments config (https://comments.app)
       [params.page.comment.telegram]
         enable = true
         siteID = "TU_iWUfW"
         limit = 5
-        height = ""
-        color = ""
+        height = "10"
+        color = "#fffff"
         colorful = true
         dislikes = false
         outlined = false
       # FixIt 0.2.0 | NEW Commento comment config (https://commento.io)
-      [params.page.comment.commento]
-        enable = false
-      # FixIt 0.2.5 | NEW Utterances comment config (https://utteranc.es)
-      [params.page.comment.utterances]
-        enable = false
-        # owner/repo
-        repo = ""
-        issueTerm = "pathname"
-        label = ""
-        lightTheme = "github-light"
-        darkTheme = "github-dark"
-      # FixIt 0.2.13 | NEW Twikoo comment config (https://twikoo.js.org/)
-      [params.page.comment.twikoo]
-        enable = false
-        envId = ""
-        region = ""
-        path = ""
-        visitor = true
-        commentCount = true
-        # FixIt 0.2.17 | CHANGED enable lightgallery support
-        lightgallery = false
-        # FixIt 0.2.17 | NEW enable Katex support
-        katex = false
-      # FixIt 0.2.14 | NEW Giscus comments config
-      [params.page.comment.giscus]
-        enable = false
-        repo = ""
-        repoId = ""
-        category = ""
-        categoryId = ""
-        mapping = ""
-        term = ""
-        reactionsEnabled = "1"
-        emitMetadata = "0"
-        inputPosition = "bottom" # ["top", "bottom"]
-        lightTheme = "light"
-        darkTheme = "dark"
-        lazyLoad = true
     # FixIt 0.2.7 | NEW Third-party library config
     [params.page.library]
       [params.page.library.css]
