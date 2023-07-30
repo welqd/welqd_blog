@@ -288,7 +288,7 @@ enableEmoji = true
       fullscreen = true
     # FixIt 0.2.17 | NEW Donate (Sponsor) settings
     [params.page.reward]
-      enable = true
+      enable = false
       animation = false
       position = "after"
       comment = "Buy me a coffee"
@@ -329,10 +329,10 @@ enableEmoji = true
       Mix = false
     # FixIt 0.2.15 | CHANGED Comment config
     [params.page.comment]
-      enable = true
+      enable = false
       [params.page.comment.telegram]
-        enable = true
-        siteID = "TU_iWUfW"
+        enable = false
+        siteID = "vaBtBE_g"
         limit = 5
         height = "150"
         color = ""
