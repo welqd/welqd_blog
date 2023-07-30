@@ -1,16 +1,16 @@
 {
   "name": "fixit-src",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "FixIt theme source files",
   "private": true,
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "atomic-algolia": "^0.3.19",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
-    "core-js": "^3.27.2",
+    "core-js": "^3.29.1",
     "segmentit": "^2.0.3"
   },
   "scripts": {
@@ -22,7 +22,9 @@
     "start": "npm run babel && npm run server",
     "start:production": "npm run babel && npm run server:production",
     "algolia": "atomic-algolia",
-    "update:docs": "git submodule update --remote --merge && git add docs && git commit -m ':memo: Docs: update theme docs'"
+    "update:docs": "git submodule update --remote --merge && git add docs && git commit -m ':memo: Docs: update theme docs'",
+    "version": "sed -i '' \"s/v$npm_package_version-RC/v$npm_package_version/g\" layouts/partials/init/index.html && git add .",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

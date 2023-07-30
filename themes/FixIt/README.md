@@ -1,7 +1,7 @@
 # FixIt Theme | Hugo
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/hugo-fixit/FixIt?style=flat)](https://github.com/hugo-fixit/FixIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.89.0-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
+[![Hugo](https://img.shields.io/badge/Hugo-%5E0.109.0-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
 [![License](https://img.shields.io/github/license/hugo-fixit/FixIt?style=flat)](/LICENSE)
 
 👉 English README | [简体中文说明](README.zh-cn.md)
@@ -238,10 +238,11 @@ FixIt is licensed under the **MIT** license. Check the [LICENSE file](LICENSE) f
 
 ## Sponsor
 
+Giving me a Star 🌟 is already the greatest encouragement and support for me.\
 If you enjoy the theme, please consider buying me a coffee ☕️.
 
 * [PayPal](https://paypal.me/Lruihao)
-* [Alipay](images/alipay.gif)
-* [Wechat](images/wechatpay.gif)
+* [Alipay](images/alipay.jpg)
+* [Wechat](images/wechatpay.jpg)
 
 Thanks! ❤️

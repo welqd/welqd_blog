@@ -10,35 +10,35 @@ enableEmoji = true
     identifier = "posts"
     pre = ""
     post = ""
-    name = "Posts"
+    name = "Все статьи"
     url = "/posts/"
     title = ""
     weight = 1
     [menu.main.params]
       class = ""
       draft = false
-      icon = "fa-solid fa-archive"
+      icon = "fa-solid fa-newspaper"
       type = ""
-  # [[menu.main]]
-  #   identifier = "categories"
-  #   pre = ""
-  #   post = ""
-  #   name = "Categories"
-  #   url = "/categories/"
-  #   title = ""
-  #   weight = 2
-  #   [menu.main.params]
-  #     icon = "fa-solid fa-th"
   [[menu.main]]
     identifier = "tags"
     pre = ""
     post = ""
-    name = "Tags"
+    name = "Тeги"
     url = "/tags/"
     title = ""
     weight = 3
     [menu.main.params]
       icon = "fa-solid fa-tags"
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "Обо мне"
+    url = "/about/"
+    title = ""
+    weight = 4
+    [menu.main.params]
+      icon = "fa-solid fa-info-circle"
 
 [params]
   version = "0.2.X" # e.g. "0.2.X", "0.2.15", "v0.2.15" etc.
@@ -288,10 +288,10 @@ enableEmoji = true
       fullscreen = true
     # FixIt 0.2.17 | NEW Donate (Sponsor) settings
     [params.page.reward]
-      enable = false
+      enable = true
       animation = false
       position = "after"
-      # comment = "Buy me a coffee"
+      comment = "Buy me a coffee"
       [params.page.reward.ways]
         # wechatpay = "/images/wechatpay.png"
         # alipay = "/images/alipay.png"
@@ -330,13 +330,12 @@ enableEmoji = true
     # FixIt 0.2.15 | CHANGED Comment config
     [params.page.comment]
       enable = true
-      # FixIt 0.2.13 | NEW Artalk comment config (https://artalk.js.org/)
       [params.page.comment.telegram]
         enable = true
         siteID = "TU_iWUfW"
         limit = 5
-        height = "10"
-        color = "#fffff"
+        height = "150"
+        color = ""
         colorful = true
         dislikes = false
         outlined = false

@@ -30,6 +30,9 @@ $code-background-color-dark: #272C34 !default;
 }
 
 .v[data-class=v] {
+  .vcount {
+    z-index: 60;
+  }
   .vcards .vcard .vcontent.expand {
     &::before, &::after {
       z-index: 50;

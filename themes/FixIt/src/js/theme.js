@@ -60,7 +60,7 @@ class Util {
 class FixIt {
   constructor() {
     this.config = window.config;
-    this.data = this.config.data;
+    this.data = this.config.data || [];
     this.isDark = document.body.dataset.theme === 'dark';
     this.util = new Util();
     this.newScrollTop = this.util.getScrollTop();
@@ -69,6 +69,7 @@ class FixIt {
     this.resizeEventSet = new Set();
     this.switchThemeEventSet = new Set();
     this.clickMaskEventSet = new Set();
+    this.beforeprintEventSet = new Set();
     this.disableScrollEvent = false;
     window.objectFitImages && objectFitImages();
   }
@@ -115,7 +116,7 @@ class FixIt {
   }
 
   initMenuDesktop() {
-    this.util.forEach(document.querySelectorAll('.has-children, #header-desktop .language'), ($item) => {
+    this.util.forEach(document.querySelectorAll('.has-children'), ($item) => {
       $item.querySelector('.sub-menu').style.minWidth = `${$item.offsetWidth - 8}px`;
     });
   }
@@ -527,7 +528,8 @@ class FixIt {
         // code title
         const $title = document.createElement('span');
         $title.classList.add('code-title');
-        $title.insertAdjacentHTML('afterbegin', '<i class="arrow fa-solid fa-chevron-right fa-fw" aria-hidden="true"></i>');
+        const hlAttrs = this.data[$chroma.parentNode.id];
+        $title.insertAdjacentHTML('afterbegin', `<i class="arrow fa-solid fa-chevron-right fa-fw" aria-hidden="true"></i><span class="title-inner">${hlAttrs?.title ?? ''}</span>`);
         $title.addEventListener('click', () => {
           $chroma.classList.toggle('open');
         }, false);
@@ -699,21 +701,24 @@ class FixIt {
     }
   }
 
+  switchMermaidTheme(theme) {
+    const $mermaidElements = document.getElementsByClassName('mermaid');
+    if ($mermaidElements.length) {
+      // TODO perf
+      const themes = this.config.mermaid.themes ?? ['default', 'dark', 'neutral'];
+      mermaid.initialize({ startOnLoad: false, theme: theme ?? (this.isDark ? themes[1] : themes[0]), securityLevel: 'loose' });
+      this.util.forEach($mermaidElements, $mermaid => {
+        mermaid.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
+          $mermaid.innerHTML = svgCode;
+        }, $mermaid);
+      });
+    }
+  };
+
   initMermaid() {
-    this._mermaidOnSwitchTheme = this._mermaidOnSwitchTheme || (() => {
-      const $mermaidElements = document.getElementsByClassName('mermaid');
-      if ($mermaidElements.length) {
-        const themes = this.config.mermaid.themes ?? ['neutral', 'dark'];
-        mermaid.initialize({startOnLoad: false, theme: this.isDark ? themes[1] : themes[0], securityLevel: 'loose'});
-        this.util.forEach($mermaidElements, $mermaid => {
-          mermaid.render('svg-' + $mermaid.id, this.data[$mermaid.id], svgCode => {
-            $mermaid.innerHTML = svgCode;
-          }, $mermaid);
-        });
-      }
-    });
-    this.switchThemeEventSet.add(this._mermaidOnSwitchTheme);
-    this._mermaidOnSwitchTheme();
+    this.switchMermaidTheme();
+    this.switchThemeEventSet.add(() => { this.switchMermaidTheme(); });
+    this.beforeprintEventSet.add(() => { this.switchMermaidTheme('neutral'); });
   }
 
   initEcharts() {
@@ -804,9 +809,11 @@ class FixIt {
       const speed = typeitConfig.speed || 100;
       const cursorSpeed = typeitConfig.cursorSpeed || 1000;
       const cursorChar = typeitConfig.cursorChar || '|';
+      const loop = typeitConfig.loop ?? false;
       Object.values(typeitConfig.data).forEach((group) => {
         const typeone = (i) => {
           const id = group[i];
+          const shortcodeLoop = document.querySelector(`#${id}`).parentElement.dataset.loop;
           const instance = new TypeIt(`#${id}`, {
             strings: this.data[id],
             speed: speed,
@@ -814,6 +821,7 @@ class FixIt {
             cursorSpeed: cursorSpeed,
             cursorChar: cursorChar,
             waitUntilVisible: true,
+            loop: shortcodeLoop ? JSON.parse(shortcodeLoop) : loop,
             afterComplete: () => {
               if (i === group.length - 1) {
                 if (typeitConfig.duration >= 0) {
@@ -878,7 +886,7 @@ class FixIt {
           countEl: this.config.comment.artalk.countEl
         })
       }
-      const artalk = new Artalk(this.config.comment.artalk);
+      const artalk = Artalk.init(this.config.comment.artalk);
       artalk.setDarkMode(this.isDark);
       this.switchThemeEventSet.add(() => {
         artalk.setDarkMode(this.isDark);
@@ -959,15 +967,13 @@ class FixIt {
         document.querySelector('.giscus-frame')?.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
       });
       this.switchThemeEventSet.add(this._giscusOnSwitchTheme);
-      const _this = this;
-      _this.giscus2parentMsg = window.addEventListener('message', (event) => {
+      this.giscus2parentMsg = window.addEventListener('message', (event) => {
         const $script = document.querySelector('#giscus>script');
         if ($script){
-          _this._giscusOnSwitchTheme();
+          this._giscusOnSwitchTheme();
           $script.parentElement.removeChild($script);
         }
-        window.removeEventListener('message', _this.giscus2parentMsg);
-      });
+      }, { once: true });
       return;
     }
   }
@@ -1138,12 +1144,43 @@ class FixIt {
     }
   }
 
+  initReward() {
+    const $rewards = document.querySelectorAll('.post-reward [data-mode="fixed"]');
+    if (!$rewards.length) {
+      return;
+    }
+    // `fixed` mode only supports desktop
+    if (this.util.isMobile()) {
+      this.util.forEach($rewards, ($reward) => {
+        $reward.removeAttribute('data-mode');
+      });
+      return;
+    }
+    // Close post reward images exclude special id
+    const _closeRewardExclude = (id) => {
+      this.util.forEach($rewards, ($reward) => {
+        const $rewardInput = $reward.parentElement.querySelector('.reward-input');
+        if ($rewardInput.id !== id) {
+          $rewardInput.checked = false;
+        }
+      });
+    };
+    // Add additional click event to reward buttons
+    this.util.forEach($rewards, ($reward) => {
+      $reward.previousElementSibling.addEventListener('click', function () {
+        _closeRewardExclude(this.getAttribute('for'));
+      }, false)
+    });
+    this.scrollEventSet.add(_closeRewardExclude);
+  }
+
   onScroll() {
     const $headers = [];
     const ACCURACY = 20;
     const $fixedButtons = document.querySelector('.fixed-buttons');
     const $backToTop = document.querySelector('.back-to-top');
     const $readingProgressBar = document.querySelector('.reading-progress-bar');
+    let scrollTimer = void 0;
     if (document.body.dataset.headerDesktop === 'auto') {
       $headers.push(document.getElementById('header-desktop'));
     }
@@ -1162,6 +1199,12 @@ class FixIt {
       const $mask = document.getElementById('mask');
       this.newScrollTop = this.util.getScrollTop();
       const scroll = this.newScrollTop - this.oldScrollTop;
+      // body scrollbar style
+      document.body.toggleAttribute('data-scroll', true);
+      scrollTimer && window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        document.body.toggleAttribute('data-scroll');
+      }, 500);
       // header animation
       this.util.forEach($headers, ($header) => {
         if (scroll > ACCURACY) {
@@ -1211,7 +1254,7 @@ class FixIt {
             event();
           }
           this.initToc();
-          this.initMermaid();
+          this.switchMermaidTheme();
           this.initSearch();
 
           const isMobile = this.util.isMobile()
@@ -1234,6 +1277,17 @@ class FixIt {
       }
       this.disableScrollEvent = false;
       document.body.classList.remove('blur');
+    }, false);
+  }
+
+  beforeprint() {
+    window.addEventListener('beforeprint', () => {
+      this.util.forEach(document.querySelectorAll('.chroma'), ($el) => {
+        $el.classList.toggle('open', true)
+      });
+      for (let event of this.beforeprintEventSet) {
+        event();
+      }
     }, false);
   }
 
@@ -1266,6 +1320,7 @@ class FixIt {
       this.initWatermark();
       this.initMDevtools();
       this.initAutoMark();
+      this.initReward();
 
       window.setTimeout(() => {
         this.initComment();
@@ -1276,6 +1331,7 @@ class FixIt {
         this.onScroll();
         this.onResize();
         this.onClickMask();
+        this.beforeprint();
       }, 100);
     } catch (err) {
       console.error(err);

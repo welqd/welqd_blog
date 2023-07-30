@@ -157,6 +157,12 @@
       # whether to use typeit animation for subtitle name
       typeit = false
 
+  # FixIt 0.2.18 | NEW Breadcrumb config
+  [params.breadcrumb]
+    enable = false
+    sticky = false
+    showHome = false
+
   # Footer config
   [params.footer]
     enable = true
@@ -458,6 +464,8 @@
       # position relative to post footer, optional values: ["before", "after"]
       position = "after"
       # comment = "Buy me a coffee"
+      # FixIt 0.2.18 | NEW display mode of QR code images, optional values: ["static", "fixed"], default: `static`
+      mode = "static"
       [params.page.reward.ways]
         # wechatpay = "/images/wechatpay.png"
         # alipay = "/images/alipay.png"
@@ -506,10 +514,20 @@
         sendBtn = ""
         editorTravel = true
         flatMode = "auto"
-        maxNesting = 3
         # FixIt 0.2.17 | CHANGED enable lightgallery support
         lightgallery = false
         locale = "" # FixIt 0.2.15 | NEW
+        # FixIt 0.2.18 | NEW
+        emoticons = ""
+        nestMax = 2
+        nestSort = "DATE_ASC" # ["DATE_ASC", "DATE_DESC", "VOTE_UP_DESC"]
+        vote = true
+        voteDown = false
+        uaBadge = true
+        listSort = true
+        imgUpload = true
+        preview = true
+        versionCheck = true
       # FixIt 0.1.1 | NEW Disqus comment config (https://disqus.com)
       [params.page.comment.disqus]
         enable = false
@@ -612,6 +630,7 @@
         category = ""
         categoryId = ""
         mapping = ""
+        strict = "0" # FixIt NEW | 0.2.18
         term = ""
         reactionsEnabled = "1"
         emitMetadata = "0"
@@ -650,11 +669,13 @@
     cursorChar = "|"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     duration = -1
+    # FixIt 0.2.18 | NEW whether your strings will continuously loop after completing
+    loop = false
 
   # FixIt 0.2.15 | NEW Mermaid config
   [params.mermaid]
-    # For values, see https://mermaid-js.github.io/mermaid/#/Setup?id=theme
-    themes = ["neutral", "dark"]
+    # For values, see https://mermaid.js.org/config/theming.html#available-themes
+    themes = ["default", "dark"]
 
   # FixIt 0.2.12 | NEW PanguJS config
   [params.pangu]
@@ -819,4 +840,4 @@
 [module]
   [module.hugoVersion]
     extended = true
-    min = "0.89.0"
+    min = "0.109.0"

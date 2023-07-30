@@ -1,7 +1,7 @@
 # FixIt 主题 | Hugo
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/hugo-fixit/FixIt?style=flat)](https://github.com/hugo-fixit/FixIt/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.89.0-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
+[![Hugo](https://img.shields.io/badge/Hugo-%5E0.109.0-ff4088?style=flat&logo=hugo)](https://gohugo.io/)
 [![License](https://img.shields.io/github/license/hugo-fixit/FixIt?style=flat)](/LICENSE)
 
 👉 [English README](README.md) | 简体中文说明
@@ -242,10 +242,11 @@ FixIt 根据 **MIT** 许可协议授权。 更多信息请查看 [LICENSE 文件
 
 ## 赞助支持
 
+给我一个 Star 🌟 已经是对我最大的鼓励和支持了。\
 如果你喜爱这个主题，请考虑给我买杯咖啡 ☕️。
 
 * [PayPal](https://paypal.me/Lruihao)
-* [支付宝](images/alipay.gif)
-* [微信支付](images/wechatpay.gif)
+* [支付宝](images/alipay.jpg)
+* [微信支付](images/wechatpay.jpg)
 
 谢谢！❤️

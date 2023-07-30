@@ -3,32 +3,54 @@
 All notable changes to this project will be documented in this file.
 <!-- Releases see https://github.com/hugo-fixit/FixIt/releases -->
 
-## v0.2.18
+## v0.2.18-lts
 
-## Breaking Updates
+- :sparkles: Feat: add code block attributes support ([#330](https://github.com/hugo-fixit/FixIt/issues/330))
 
-- [#288](https://github.com/hugo-fixit/FixIt/pull/288)
+## v0.2.18 [2023.3.31]
 
-## What's New
-
+> **Note**
+> This will be the last relatively stable 0.x release, after which the first major release will be incompatible with all previous 0.x releases
 > Snapshot: <>
 
+## :boom: Breaking Updates
+
+- Refactor author data config [#288](https://github.com/hugo-fixit/FixIt/pull/288)
+
+## :new: What's New
+
+- :tada: Feat: add natively support mermaid with code fences ([#230](https://github.com/hugo-fixit/FixIt/issues/230))
+- :tada: Feat: add breadcrumb navigation ([#309](https://github.com/hugo-fixit/FixIt/pull/309))
 - :sparkles: Feat: add instant page (@Mejituu [#279](https://github.com/hugo-fixit/FixIt/pull/279))
 - :sparkles: Feat: add `force` option value to `params.page.lightgallery`
+- :sparkles: Feat: add loop parameter for typeit ([#303](https://github.com/hugo-fixit/FixIt/pull/303))
+- :sparkles: Feat: add paramater strict for giscus comment
 - :bug: Fix: donate images without lazy loading (@Mejituu [#279](https://github.com/hugo-fixit/FixIt/pull/279))
 - :bug: Fix: discordinvite typo (@mathieu-gilloots [#282](https://github.com/hugo-fixit/FixIt/pull/282))
 - :bug: Fix: missing parameter `requiredFields` for Valine
 - :bug: Fix: js.build is executed after fingerprint, resulting in the destruction of js integrity
 - :bug: Fix: toc fails when the toc aside is on the left
 - :bug: Fix: APlayer invades the click event of the anchor links, resulting in invalid Chinese anchor links scrolling ([#292](https://github.com/hugo-fixit/FixIt/issues/292))
+- :bug: Fix: resolve style conflicts between valine and animate.css ([#304](https://github.com/hugo-fixit/FixIt/issues/304))
+- :bug: Fix: version `v0.2.17` is not compatible with previous versions
+- :bug: Fix: `crypto-js/md5.js` and `crypto-js/sha256.js` cdn path error
+- :bug: Fix:  HackTheBox social link not in the right format ([#308](https://github.com/hugo-fixit/FixIt/issues/308))
 - :recycle: Refactor: image lazy loading ([#283](https://github.com/hugo-fixit/FixIt/pull/283))
 - :recycle: Refactor: author's avatar of post or profile ([#288](https://github.com/hugo-fixit/FixIt/pull/288))
+- :recycle: Refactor: language switch in desktop header ([#306](https://github.com/hugo-fixit/FixIt/pull/306))
+- :recycle: Refactor(reward): add parameter `mode` for post reward and refactor shortcode `reward`
+- :wheelchair: Feat: add post update date to post meta ([#285](https://github.com/hugo-fixit/FixIt/issues/285))
 - :art: Style: fix `#comments` css style conflict ([#269](https://github.com/hugo-fixit/FixIt/issues/269))
-- :recycle: Refactor: theme documentation
-- :wrench: Chore: change the theme minimum supported Hugo versions above **0.89.0**
+- :art: Style: adjust the mobile header style and fix the bug that scrolling is invalid when there are too many menus on mobile ([#289](https://github.com/hugo-fixit/FixIt/issues/289))
+- :art: Perf: optimize the scroll bar style of body and toc-auto elements
+- :memo: Docs: refactor the theme documentation
+- :wrench: Chore: change the theme minimum supported Hugo versions above **0.109.0**
 - :arrow_up: Chore(libs):
   - Update Update @waline/client from 2.10.0 to 2.14.7 (@Mejituu [#279](https://github.com/hugo-fixit/FixIt/pull/279))
-- **Full Changelog:** @Lruihao [`v0.2.16...v0.2.17`](https://github.com/hugo-fixit/FixIt/compare/v0.2.16...v0.2.17)
+  - Update typeit from 8.7.0 to 8.7.1
+  - Update mermaid from 9.1.7 to 9.4.3
+  - Update Artalk from 2.3.4 to 2.5.2
+- **Full Changelog:** @Lruihao [`v0.2.17...v0.2.18`](https://github.com/hugo-fixit/FixIt/compare/v0.2.17...v0.2.18)
 
 ## v0.2.17 [2023.1.29]
 
@@ -68,6 +90,11 @@ All notable changes to this project will be documented in this file.
   - Bump @babel/core from 7.19.1 to 7.20.12
   - Bump @babel/preset-env from 7.18.10 to 7.20.2
   - Bump core-js from 3.25.2 to 3.27.2
+- :wrench: Chore(deps-dev):
+  - Bump @babel/cli from 7.20.7 to 7.17.10
+  - Bump @babel/core from 7.20.12 to 7.21.4
+  - Bump @babel/preset-env from 7.20.2 to 7.21.4
+  - Bump core-js from 3.27.2 to 3.29.1
 - **Full Changelog:** @Lruihao [`v0.2.16...v0.2.17`](https://github.com/hugo-fixit/FixIt/compare/v0.2.16...v0.2.17)
 
 ## v0.2.16 [2022.9.24]

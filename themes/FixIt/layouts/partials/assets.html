@@ -41,7 +41,7 @@
 {{- /* instant.page */ -}}
 {{- if $params.instantPage -}}
   {{- $source := $cdn.instantPage | default "lib/instant-page/instantpage.min.js" -}}
-  {{- dict "Source" $source "Fingerprint" $fingerprint "Attr" "type=\"module\"" "Async" true "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+  {{- dict "Source" $source "Fingerprint" $fingerprint "Attr" `type="module"` "Async" true "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 {{- end -}}
 
 {{- /* twemoji */ -}}
@@ -88,7 +88,7 @@
   {{- $typeit := $.Site.Params.typeit -}}
   {{- $source := $cdn.typeitJS | default "lib/typeit/index.umd.js" -}}
   {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
-  {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "data" . | dict "typeit" | merge $config -}}
+  {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "loop" $typeit.loop "data" . | dict "typeit" | merge $config -}}
 {{- end -}}
 
 {{- /* KaTeX */ -}}
@@ -201,8 +201,8 @@
 {{- if $params.password | or $encryptPartial -}}
   {{- $cryptoCoreJS := $cdn.cryptoCoreJS | default "lib/crypto-js/core.js" -}}
   {{- $cryptoEncBase64JS := $cdn.cryptoEncBase64JS | default "lib/crypto-js/enc-base64.js" -}}
-  {{- $cryptoMd5JS := $cdn.cryptoCoreJS | default "lib/crypto-js/md5.js" -}}
-  {{- $cryptoSha256JS := $cdn.cryptoCoreJS | default "lib/crypto-js/sha256.js" -}}
+  {{- $cryptoMd5JS := $cdn.cryptoMd5JS | default "lib/crypto-js/md5.js" -}}
+  {{- $cryptoSha256JS := $cdn.cryptoSha256JS | default "lib/crypto-js/sha256.js" -}}
   {{- dict "Source" $cryptoCoreJS "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
   {{- dict "Source" $cryptoEncBase64JS "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
   {{- dict "Source" $cryptoMd5JS "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
@@ -229,8 +229,9 @@
 {{- end -}}
 
 {{- /* Site creation time */ -}}
-{{- if .Site.Params.footer.siteTime.enable -}}
-  {{- with .Site.Params.footer.siteTime.value -}}
+{{- $siteTime := .Scratch.Get "siteTime" -}}
+{{- if $siteTime.enable -}}
+  {{- with $siteTime.value -}}
     {{- $config = dict "siteTime" . | merge $config -}}
   {{- end -}}
 {{- end -}}

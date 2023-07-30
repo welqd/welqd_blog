@@ -107,5 +107,3 @@ for_window [class="eve-ng"] move to workspace $ws7 layout tabbed border pixel 0
 ```
 В итоге, средствами оконного менеджера,  получаем альтернативу терминала с владками, которые автоматически открываются на втором мониторе.    
 ![Вид терминала с "вкладками"](/img/alacritty-tabs.png)
-
-<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="TU_iWUfW" data-limit="5" data-color="F646A4" data-colorful="1" data-dark="1"></script>
