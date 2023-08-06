@@ -5,7 +5,7 @@ author: Vadim Aleshin
 tags: ['networking', 'linux', 'eve-ng']
 ---
 
-В [предыдущей]({{< ref "/posts/eve-ng-arch-i3.md" >}}) публикации был установлен образ EVE-NG и настроена базовая конфигурация. Теперь создадим образ Linux-роутера на основе Debian 11 и добавим его в EVE-NG.   
+В [предыдущей]({{< ref "/posts/2022-09-13-eve-ng-arch-i3.md" >}}) публикации был установлен образ EVE-NG и настроена базовая конфигурация. Теперь создадим образ Linux-роутера на основе Debian 11 и добавим его в EVE-NG.   
 
 ## Создание виртуальной машины
 
@@ -161,6 +161,6 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.655/0.849/0.954/0.137 ms
 ```
 
-Как видим образ работает. В [следующей статье]({{< ref "/posts/linux-cisco-vti-ipsec.md" >}}) установим ipsec туннель между Cisco и Linux роутером и настроим OSPF.
+Как видим образ работает. В [следующей статье]({{< ref "/posts/2022-09-17-linux-cisco-vti-ipsec.md" >}}) установим ipsec туннель между Cisco и Linux роутером и настроим OSPF.
 
 [^1]: В качестве основы для данной публикации использовалась [данная](https://www.brianlinkletter.com/2017/03/build-custom-linux-router-image-unetlab-eve-ng-network-emulators/) статья.

@@ -19,7 +19,7 @@ tags: ['networking', 'linux', 'eve-ng', 'i3']
 ### Добавление образов
 
 В EVE-NG можно использовать разные типы образов: dynamips, iol, qemu.  
-Для примера будем использовать образы Cisco (iol), а после добавим [custom linux образ]({{< ref "/posts/eve-ng-linux-iso.md" >}}).  
+Для примера будем использовать образы Cisco (iol), а после добавим [custom linux образ]({{< ref "/posts/2022-09-15-eve-ng-linux-iso.md" >}}).  
 IOL-образы необходимо добавлять по пути: **/opt/unetlab/addons/iol/bin/**
 
 1. Перейдем в директорию на локальной машине, где располагаются образы[^1].

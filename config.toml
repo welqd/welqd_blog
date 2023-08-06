@@ -4,6 +4,8 @@ title = "welqd's blog"
 theme = "FixIt"
 timeZone = "Europe/Moscow"
 enableEmoji = true
+enableRobotsTXT = true
+enableGitInfo = true
 
 [menu]
   [[menu.main]]
@@ -52,14 +54,18 @@ enableEmoji = true
     desktopMode = "sticky"
     mobileMode = "auto"
     [params.header.title]
-      logo = ""
-      name = "Блог о сетях, Linux и о чем-нибудь ещё"
+      logo = "/img/main-logo.png"
+      name = "Блог о сетях, Linux"
       pre = ""
       post = ""
       typeit = false
     [params.header.subtitle]
-      name = ""
+      name = "и, возможно, о чём-нибудь ещё"
       typeit = false
+
+  [params.app]
+    svgFavicon = "/img/favicon.ico"
+
 
   # Footer config
   [params.footer]
@@ -105,7 +111,7 @@ enableEmoji = true
 
   # FixIt 0.2.17 | NEW TagCloud config for tags page
   [params.tagcloud]
-    enable = false
+    enable = true
     min = 14 # Minimum font size in px
     max = 32 # Maximum font size in px
     peakCount = 10 # Maximum count of posts per tag
@@ -117,7 +123,7 @@ enableEmoji = true
     [params.home.profile]
       enable = true
       gravatarEmail = ""
-      avatarURL = ""
+      avatarURL = "/img/main-logo.png"
       avatarMenu = ""
       title = ""
       subtitle = ".!!!!"
@@ -132,90 +138,6 @@ enableEmoji = true
   # FixIt 0.2.16 | CHANGED Social config about the author
   [params.social]
     GitHub = "welqd"
-    Linkedin = ""
-    Twitter = ""
-    Instagram = ""
-    Facebook = ""
-    Telegram = ""
-    Medium = ""
-    Gitlab = ""
-    Youtubelegacy = ""
-    Youtubecustom = ""
-    Youtubechannel = ""
-    Tumblr = ""
-    Quora = ""
-    Keybase = ""
-    Pinterest = ""
-    Reddit = ""
-    Codepen = ""
-    FreeCodeCamp = ""
-    Bitbucket = ""
-    Stackoverflow = ""
-    Weibo = ""
-    Odnoklassniki = ""
-    VK = ""
-    Flickr = ""
-    Xing = ""
-    Snapchat = ""
-    Soundcloud = ""
-    Spotify = ""
-    Bandcamp = ""
-    Paypal = ""
-    Fivehundredpx = ""
-    Mix = ""
-    Goodreads = ""
-    Lastfm = ""
-    Foursquare = ""
-    Hackernews = ""
-    Kickstarter = ""
-    Patreon = ""
-    Steam = ""
-    Twitch = ""
-    Strava = ""
-    Skype = ""
-    Whatsapp = ""
-    Zhihu = ""
-    Douban = ""
-    Angellist = ""
-    Slidershare = ""
-    Jsfiddle = ""
-    Deviantart = ""
-    Behance = ""
-    Dribbble = ""
-    Wordpress = ""
-    Vine = ""
-    Googlescholar = ""
-    Researchgate = ""
-    Mastodon = ""
-    Thingiverse = ""
-    Devto = ""
-    Gitea = ""
-    XMPP = ""
-    Matrix = ""
-    Bilibili = ""
-    ORCID = ""
-    Liberapay = ""
-    Ko-Fi = ""
-    BuyMeaCoffee = ""
-    Linktree = ""
-    QQ = ""
-    QQGroup = "" # https://qun.qq.com/join.html
-    Diaspora = ""
-    CSDN = ""
-    Discord = ""
-    DiscordInvite = ""
-    Lichess = ""
-    Pleroma = ""
-    Kaggle = ""
-    MediaWiki= ""
-    Plume = ""
-    HackTheBox = ""
-    RootMe = ""
-    Feishu = ""
-    TryHackMe = ""
-    Douyin = ""
-    TikTok = ""
-    Phone = ""
     Email = "w3lqd@yandex.ru"
     RSS = true
 
@@ -357,7 +279,7 @@ enableEmoji = true
       images = []
       # Publisher info
       [params.page.seo.publisher]
-        name = ""
+        name = "sss"
         logoUrl = ""
 
   # FixIt 0.2.5 | NEW TypeIt config
@@ -369,7 +291,7 @@ enableEmoji = true
     # character used for the cursor (HTML format is supported)
     cursorChar = "|"
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
-    duration = -1
+    duration = 1
 
   # FixIt 0.2.15 | NEW Mermaid config
   [params.mermaid]
