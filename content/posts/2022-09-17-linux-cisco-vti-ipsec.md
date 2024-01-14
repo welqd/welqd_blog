@@ -17,7 +17,7 @@ tags: ['networking', 'linux', 'cisco']
 
 Соберем простую топологию, как на изображении ниже.  
 
-![ipsec-topology](/img/ipsec-topology.png)
+![ipsec-topology](/img/2022-09-17-linux-cisco-vti-ipsec/ipsec-topology.png)
 
 Адресация:
 1. 1.1.1.0/24 - сеть провайдера для точки с роутером Cisco

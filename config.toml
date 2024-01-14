@@ -139,6 +139,7 @@ enableGitInfo = true
   [params.social]
     GitHub = "welqd"
     Email = "w3lqd@yandex.ru"
+    Telegram = "https://t.me/aleshin_vadim"
     RSS = true
 
   # FixIt 0.2.0 | CHANGED Page config

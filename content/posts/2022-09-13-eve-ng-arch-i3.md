@@ -42,7 +42,7 @@ scp * root@192.168.22.71:/opt/unetlab/addons/iol/bin/
 По умолчанию при добавлении нового устройства в лабораторную, появляется список всех устройств (даже если нет установленного образа), что очень неудобно.  
 Для исправления ситуации в файле **/opt/unetlab/html/includes/init.php** найти блок кода:  
 
-```php
+```
 if ( $found == 0 )  {
         //$node_templates[$templ] = $desc.'.missing'  ;
         //$node_templates[$templ] = $desc.TEMPLATE_DISABLED  ;
@@ -51,7 +51,7 @@ if ( $found == 0 )  {
 
 Закомментировать строчку **$node_templates[$templ] = $desc.TEMPLATE_DISABLED** и добавить **unset($node_templates[$templ])**, после чего при добавлении устройства будет выбор только тех, чей образ добавлен, как на изображении ниже.  
 
-![Добавление нового устройства](/img/eve-ng-new-node.png)
+![Добавление нового устройства](/img/2022-09-13-eve-ng-arch-i3/eve-ng-new-node.png)
 
 ## Интеграция с Arch Linux
 
@@ -69,7 +69,7 @@ if ( $found == 0 )  {
 
 1. Для большинства терминалов (к примеру, xfce4-terminal) в файле /usr/bin/eve-ng-integration необходимо найти функцию **terminal_emulator_cmd** и в последнем else закомментировать **return ['xterm', '-e']** и добавить нужный терминал, как в примере ниже.   
 
-```python
+```
 else:
     #return ['xterm', '-e']
     return ['xfce4-terminal', '-e']
@@ -80,7 +80,7 @@ else:
 Для исправления необходимо в файле **/usr/bin/eve-ng-integration** найти функцию **execute**, закомментировать переменную **command** и добавить такую же, но без *'/n'*, как указано ниже. Теперь терминал, при клике на устройство в eve-ng, должен открываться[^2].  
 [^2]: При смене терминала с alacritty на другой, не забыть это исправление в коде 
 
-```python
+```
 def execute(self, command):
     if isinstance(command, (str)):
         #command = command.split('\n')
@@ -106,4 +106,4 @@ def execute(self, command):
 for_window [class="eve-ng"] move to workspace $ws7 layout tabbed border pixel 0
 ```
 В итоге, средствами оконного менеджера,  получаем альтернативу терминала с владками, которые автоматически открываются на втором мониторе.    
-![Вид терминала с "вкладками"](/img/alacritty-tabs.png)
+![Вид терминала с "вкладками"](/img/2022-09-13-eve-ng-arch-i3/alacritty-tabs.png)

@@ -15,7 +15,7 @@ tags: ['networking', 'linux', 'eve-ng']
 Т.к. необходим наиболее минимальный образ, то объем диска указываем 3-4 Гб, этого достаточно.  
 Также, для удобства, на заключительном этапе установки делаем настройку сетевой карты мостом, для этого выбираем **Customize Hardware...**, выбираем **Network adapter** -> **Bridged**, как на изображении ниже.  
 
-![Настройка bridge](/img/vmware-bridge.png)
+![Настройка bridge](/img/2022-09-15-eve-ng-linux-iso/vmware-bridge.png)
 
 После этого запускаем ВМ и устанавливаем операционную систему.  
 На этапе установки стоит обратить внимание на то, что графическое окружение устанавливать **не нужно**, поэтому на шаге **software selection** оставляем отмеченными только пункты **SSH server** и **standart system utilities**.
@@ -116,13 +116,13 @@ qemu_options: -machine type=pc,accel=kvm -serial mon:stdio -nographic -boot orde
 ## Проверка работы образа
 
 Теперь при добавлении новой Node появляется выбор образа  
-![Новая Node](/img/eve-ng-add-linuxrouter.png)
+![Новая Node](/img/2022-09-15-eve-ng-linux-iso/eve-ng-add-linuxrouter.png)
 
 Также видно, что параметры по умолчанию используются те, которые задавали ранее в шаблоне
-![Параметры](/img/eve-ng-linuxrouter-template.png)
+![Параметры](/img/2022-09-15-eve-ng-linux-iso/eve-ng-linuxrouter-template.png)
 
 Соберем простую топологию, с первое устройство будет роутер Cisco, второе - роутер на Linux
-![Топология](/img/eve-ng-linuxrouter-topology.png)
+![Топология](/img/2022-09-15-eve-ng-linux-iso/eve-ng-linuxrouter-topology.png)
 
 Настроим ip-адреса на обоих устройствах и сделаем ping друг до друга  
 
