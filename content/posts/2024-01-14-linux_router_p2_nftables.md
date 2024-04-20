@@ -64,7 +64,7 @@ Nftables, как и iptables, "под капотом" использует Netfi
 
 1. Файл должен начинаться с исполняемой программы nft и очистки правил:
 
-```
+```text
 #!/usr/sbin/nft -f
 flush ruleset
 ```
@@ -74,7 +74,7 @@ flush ruleset
     По этому принципу можно организовать Zone Based Firewall,
    если несколько интерфейсов принадлежат одной зоне безопасности).
 
-```
+```text
 define WAN_INT = enp1s0
 define LAN_INT = br0
 define VLAN69 = vlan69
@@ -83,7 +83,7 @@ define VLAN69 = vlan69
 3. Определим переменную для немашрутизируемых глобально сетей,
    чтобы явно заблокировать поступающие на WAN-интерфейс пакеты.
 
-```
+```text
 define BOGONS4 = {
 0.0.0.0/8,
 10.0.0.0/8,
@@ -115,7 +115,7 @@ define BOGONS4 = {
   Как и в предыдущем случае, сюда перенаправляем все пакеты из хука input,
   пришедшие с LAN-интерфейсов
 
-```
+```text
 table ip FILTER {
   chain FROM_WAN {
     ip saddr { $BOGONS4 } counter drop
@@ -131,7 +131,7 @@ table ip FILTER {
 5. Далее настройка цепочки input. Сразу приведу всю конфигурацию,
    а чуть ниже рассмотрим каждую строку отдельно.
 
-```
+```text
 chain INPUT {
     type filter hook input priority 0; policy accept;
     ct state established,related counter accept
@@ -182,7 +182,7 @@ chain INPUT {
    Разрешаем пакеты на интерфейсах: LAN_INT (br0), VLAN69 (vlan69)  
    Остальное отбрасываем.
 
-```
+```text
 chain FORWARD {
     type filter hook forward priority 0; policy accept;
     ct state established,related counter accept
@@ -200,7 +200,7 @@ chain FORWARD {
 - создаём цепочку с хуком postrouting и policy accept
 - указываем oif (outgoing interface) - WAN_INT и действие masquerade
 
-```
+```text
 table ip NAT {
   chain POSTROUTING {
     type nat hook postrouting priority 0; policy accept;
@@ -213,7 +213,7 @@ table ip NAT {
 
 Просто приведу итоговый конфиг, получившийся из ранее описанных действий.
 
-```
+```text
 #!/usr/sbin/nft -f
 
 flush ruleset
@@ -282,14 +282,14 @@ table ip NAT {
 
 Ну и в завершении включаем (если не был включен) или перезагружаем сервис nftables
 
-```
+```text
 systemctl enable --now nftables.service
 systemctl restart nftables.service
 ```
 
 Если ошибок нет, то сервис будет в состоянии active.
 
-```
+```text
 ● nftables.service - nftables
      Loaded: loaded (/lib/systemd/system/nftables.service; enabled; preset: enabled)
      Active: active (exited) since Sun 2024-01-14 15:04:32 MSK; 6h ago
